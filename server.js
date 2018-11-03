@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const path = require('path');
 
 const findHedgieImage = require('./scraper.js');
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(cors);
 
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Hedgehog Celebration';
